@@ -1,0 +1,9 @@
+.container
+  h3 News
+  ul.collection
+    - @news.each do |item|
+      li.collection-item.avatar
+        img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle"
+        span.title= item.title
+        p= item.desc
+        a.secondary-content href="#!": i.mdi-action-grade.small
