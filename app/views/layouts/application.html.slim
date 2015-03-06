@@ -11,9 +11,18 @@ html
           ul.right
             - Menu.main.each do |item|
               li: a href=item.href = item.label
+            - if member_signed_in?
+              | #{current_member.given_name} #{current_member.family_name}
+            - else
+              li: a href=new_member_session_path Sign In
+              li: a href=new_member_registration_path Sign Up
           ul#nav-mobile.side-nav
             li: a href="#"Navbar Link
           a href="#" data-activates="nav-mobile" class="button-collapse" class="mdi-navigation-menu"
-    #container
-      .section== yield
+    .container
+      - unless flash.empty?
+        - flash.each do |nm, msg|
+          li= msg
+    == yield
+    script src="https://code.jquery.com/jquery-1.11.2.min.js"
     script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"

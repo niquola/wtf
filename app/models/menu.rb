@@ -3,11 +3,10 @@ class Menu
     def main
       [
        {label: 'About'},
-       {label: 'Events'},
        {label: 'Membership'},
        {label: 'News', href: '/news'},
-       {label: 'Contacts'},
-       {label: 'Sign In'}
+       {label: 'Calendar', href: '/events'},
+       {label: 'Contacts', href: 'contacts'},
       ].map {|h| OpenStruct.new(h)}
     end
   end
